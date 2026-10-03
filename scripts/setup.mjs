@@ -10,4 +10,4 @@ try {
  console.log('Your existing .env was preserved.');
 }
 console.log(`Configuration: ${fileURLToPath(new URL('.env',root))}`);
-console.log('Choose TRANSCRIPTION_PROVIDER=fireworks or groq. You only need the selected transcription key.\nThen run npm run doctor and npm start. Never share your .env.');
+console.log('Choose TRANSCRIPTION_PROVIDER=fireworks, groq or openai. You only need the selected transcription key.\nThen run npm run doctor and npm start. Never share your .env.');

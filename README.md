@@ -6,7 +6,7 @@
 
 Turn a creator's Instagram Reels into a searchable research library. Filter by topic and hook, compare engagement, read the scripts, and open the original posts behind each pattern.
 
-Built with **Apify → Fireworks or Groq → TypeSafe Jev**. Runs locally in your browser. Bring your own API keys and choose a public creator, including your own account.
+Built with **Apify → Fireworks, Groq or OpenAI → TypeSafe Jev**. Runs locally in your browser. Bring your own API keys and choose a public creator, including your own account.
 
 ## Start here
 
@@ -26,7 +26,7 @@ Built with **Apify → Fireworks or Groq → TypeSafe Jev**. Runs locally in you
    npm run setup
    ```
 
-4. Open `.env` in your editor. Add `APIFY_TOKEN`, `TYPESAFE_API_KEY`, and **one** transcription key: `FIREWORKS_API_KEY` or `GROQ_API_KEY`. Set `TRANSCRIPTION_PROVIDER` to match.
+4. Open `.env` in your editor. Add `APIFY_TOKEN`, `TYPESAFE_API_KEY`, and **one** transcription key: `FIREWORKS_API_KEY`, `GROQ_API_KEY` or `OPENAI_API_KEY`. Set `TRANSCRIPTION_PROVIDER` to match.
 5. Check and launch:
 
    ```sh
@@ -55,6 +55,7 @@ Jev sees the speech before performance metrics are joined. Views and plays remai
 | Collect Reel metadata and media URLs | [Apify Instagram Reel Scraper](https://apify.com/apify/instagram-reel-scraper) | `APIFY_TOKEN` |
 | Transcribe, default option | [Fireworks](https://fireworks.ai/) | `TRANSCRIPTION_PROVIDER=fireworks`, `FIREWORKS_API_KEY` |
 | Transcribe, alternative | [Groq](https://console.groq.com/docs/speech-to-text) | `TRANSCRIPTION_PROVIDER=groq`, `GROQ_API_KEY` |
+| Transcribe, alternative | [OpenAI Whisper](https://platform.openai.com/docs/guides/speech-to-text) | `TRANSCRIPTION_PROVIDER=openai`, `OPENAI_API_KEY` |
 | Classify scripts | [TypeSafe Jev](https://docs.typesafe.ai/api) | `TYPESAFE_API_KEY` |
 
 Use either transcription provider. There is no automatic switch that could charge a different provider. Restart the server after changing `.env`.
@@ -89,4 +90,4 @@ Tests use mocked provider responses and local FFmpeg fixtures; they do not make 
 - `public/`: research dashboard and recording views.
 - `data/`: generated automatically, local only.
 
-MIT licensed. This is an independent project, not an official Instagram, Apify, Fireworks, Groq, or TypeSafe product.
+MIT licensed. This is an independent project, not an official Instagram, Apify, Fireworks, Groq, OpenAI, or TypeSafe product.

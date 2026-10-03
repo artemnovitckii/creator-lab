@@ -13,6 +13,6 @@
     "node": ">=22.9.0"
   },
   "version": "1.0.0",
-  "description": "Local Instagram Reel research with Apify, Jev, and Fireworks or Groq.",
+  "description": "Local Instagram Reel research with Apify, Jev, and Fireworks, Groq, or OpenAI.",
   "license": "MIT"
 }

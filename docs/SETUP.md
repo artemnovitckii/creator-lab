@@ -1,6 +1,6 @@
 # Set up your own creator research dashboard
 
-You need a computer, Node.js, FFmpeg, and three API keys: Apify, TypeSafe Jev, and either Fireworks or Groq. You do not need both speech providers. No Instagram password is requested.
+You need a computer, Node.js, FFmpeg, and three API keys: Apify, TypeSafe Jev, and one speech provider: Fireworks, Groq or OpenAI. You do not need more than one. No Instagram password is requested.
 
 ## 1. Install the tools
 
@@ -67,6 +67,7 @@ This copies `.env.example` to `.env`. It never overwrites an existing `.env`. Op
 | Jev | [TypeSafe](https://typesafe.ai/), your account's API key settings; [API documentation](https://docs.typesafe.ai/api) | Labels transcripts and script passages |
 | Fireworks, one option | [Fireworks account](https://app.fireworks.ai/), API keys | Transcribes audio with Whisper V3 Turbo |
 | Groq, alternative | [Groq API keys](https://console.groq.com/keys) | Transcribes audio with Whisper Large V3 Turbo |
+| OpenAI, alternative | [OpenAI API keys](https://platform.openai.com/api-keys) | Transcribes audio with Whisper (`whisper-1`) |
 
 Enable the necessary API access and billing in each account. Available plans, credits, quotas, and upgrade availability can change. You are billed by these services, not Creator Lab. The app uses Apify's [Instagram Reel Scraper](https://apify.com/apify/instagram-reel-scraper), Actor ID `xMc5Ga1oCONPmWJIa`.
 
@@ -92,9 +93,19 @@ GROQ_API_KEY=your_groq_key
 PORT=5190
 ```
 
-Replace the example values with your own keys. Keep just one value per setting. Leave the unused speech provider key empty. You do not need to edit any JavaScript.
+For **OpenAI**, use:
 
-The default local pacing settings are `FIREWORKS_REQUESTS_PER_MINUTE=60` and `GROQ_REQUESTS_PER_MINUTE=20`. These are local ceilings, not a statement of your account quota. Lower them if your account has a lower limit. Audio-duration quotas can also apply.
+```dotenv
+APIFY_TOKEN=your_apify_token
+TYPESAFE_API_KEY=your_typesafe_key
+TRANSCRIPTION_PROVIDER=openai
+OPENAI_API_KEY=your_openai_key
+PORT=5190
+```
+
+Replace the example values with your own keys. Keep just one value per setting. Leave the unused speech provider keys empty. You do not need to edit any JavaScript.
+
+The default local pacing settings are `FIREWORKS_REQUESTS_PER_MINUTE=60`, `GROQ_REQUESTS_PER_MINUTE=20` and `OPENAI_REQUESTS_PER_MINUTE=60`. These are local ceilings, not a statement of your account quota. Lower them if your account has a lower limit. Audio-duration quotas can also apply.
 
 Keys can alternatively be supplied through environment variables or the app's **Connections** dialog. Dialog keys last until the server stops. `.env` keys persist locally. This distribution does not read a parent folder's `.env`.
 
